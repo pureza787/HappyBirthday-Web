@@ -22,4 +22,3 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
     }
 });
-

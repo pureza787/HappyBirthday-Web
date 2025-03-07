@@ -1,5 +1,5 @@
-/* ตั้งค่าพื้นฐาน */
-body, html {
+ /* ตั้งค่าพื้นฐาน */
+ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -26,6 +26,8 @@ h1 {
     margin: 10px 0;
 }
 
+
+
 /* เปลี่ยนสีข้อความ "สุขสันต์วันวาเลนไทน์ 💖 THIMA 🎉" ให้ตรงกับ "ใส่รหัสของขวัญ" */
 .valentine-title {
     font-weight: bold;
@@ -33,6 +35,8 @@ h1 {
     color: #ff69b4; /* สีชมพูสด */
     text-shadow: 2px 2px 5px rgba(255, 105, 180, 0.5); /* เพิ่มเงาให้ดูนุ่มนวล */
 }
+
+
 
 /* รูปภาพ */
 .image-box img {
@@ -253,23 +257,37 @@ audio {
     100% { transform: rotate(360deg); }
 }
 
-/* ดอกไม้ตกแต่ง */
+/* เค้กตกแต่ง */
 .flower {
     font-size: 60px;
     display: block;
-    margin-bottom: 10px;
+    margin: 0 auto 10px;
+    text-align: center;
+    position: relative;
+    left: 20px; /* ขยับไปทางขวาอีก */
     animation: bounce 1s infinite alternate;
 }
 
-/* ดอกไม้ GIF */
-.flower-gif {
+/* รูปดอกไม้ */
+.flower-box {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.flower-image {
+    display: inline-block;
     width: 120px;
     height: auto;
-    display: block;
-    margin: 0 auto 15px;
-    animation: bounce 1s infinite alternate;
+    position: relative;
+    left: 20px; /* ขยับไปทางขวาอีก */
 }
 
+/* เอฟเฟกต์เด้งเบาๆ */
+@keyframes bounce {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-10px); }
+}
 /* เอฟเฟกต์เด้งเบาๆ */
 @keyframes bounce {
     from { transform: translateY(0px); }
@@ -323,4 +341,38 @@ audio {
 
 .valentine-image {
     width: 200px; /* ปรับขนาดให้เหมาะสม */
+}
+
+.heart {
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+}
+/*เกมหัวใจ*/
+.heart::before,
+.heart::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -20px;
+    left: 0;
+}
+
+.heart::after {
+    left: -20px;
+    top: 0;
 }

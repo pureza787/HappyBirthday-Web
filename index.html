@@ -12,8 +12,8 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="valentine-title">สุขสันต์วันวาเลนไทน์ 💖</h1>
-        <h1 class="valentine-title">THIMA 🎉</h1>
+        <h1 class="valentine-title">Happy birthday 🎂</h1>
+        <h1 class="valentine-title">  </h1>
 
         <!-- รูปด้านบน -->
         <div class="image-box">
@@ -22,24 +22,24 @@
 
         <!-- กล่องกรอกรหัส -->
         <div class="code-container">
-            <h2>ใส่รหัสของขวัญ <span class="highlight">THIMA</span></h2>
+            <h2>ใส่รหัสของขวัญ <span class="highlight">PURE</span></h2>
             <div class="code-input" id="code-box">
                 <input type="text" maxlength="1" id="code1" oninput="moveToNext(this, 'code2')">
                 <input type="text" maxlength="1" id="code2" oninput="moveToNext(this, 'code3')">
                 <input type="text" maxlength="1" id="code3" oninput="moveToNext(this, 'code4')">
-                <input type="text" maxlength="1" id="code4" oninput="moveToNext(this, 'code5')">
-                <input type="text" maxlength="1" id="code5" oninput="checkCode()">
+                <input type="text" maxlength="1" id="code4" oninput="checkCode()">
             </div>
 
             <!-- ดอกไม้ (ซ่อนอยู่ตอนแรก) -->
             <div class="flower-box" id="flower-box" style="display: none;">
-                <img src="https://media.tenor.com/QX8AVauxiCMAAAAi/%E0%A6%9C%E0%A7%81%E0%A6%AE%E0%A7%8D%E0%A6%AE%E0%A6%BE%E0%A6%AE%E0%A7%8B%E0%A6%AC%E0%A6%BE%E0%A6%B0%E0%A6%95.gif" 
+                <img src="123.png" 
                      alt="ดอกไม้" class="flower-image">
             </div>
 
-            <p class="success-message" id="success-message" style="display: none;">🎉 สุขสันต์วันวาเลนไทน์นะคนสวย 💐
-
-                ขอบคุณที่อยู่ข้างๆกัน ไม่ว่าจะวันดีๆ หรือวันที่เหนื่อยล้า ขอให้วันนี้เป็นอีกหนึ่งวันพิเศษที่เต็มไปด้วยรอยยิ้มและความสุข 😊ขอให้ทุกช่วงเวลาของเธออบอุ่นเเละสดใส เต็มไปด้วยสิ่งดีๆ สมหวังในทุกสิ่งที่ตั้งใจนะ 💖✨ อย่าลืมหาอะไรอร่อยๆ กินด้วยน้า จะได้อารมณ์ดีตลอดวัน! 🍰🧋💕
+            <p class="success-message" id="success-message" style="display: none;">🎉 สุขสันต์วันเกิด! 🎂
+                ขอให้วันนี้เป็นวันที่เต็มไปด้วยความสุข ความรัก และเสียงหัวเราะ 🎁✨
+                ขอให้สมหวังในทุกสิ่งที่ปรารถนา และขอให้ปีนี้เป็นปีที่ดีสำหรับเธอ 💕
+                ขอบคุณที่เป็นคนพิเศษในชีวิต ขอให้มีความสุขมากๆ นะ!
             </p>
         </div>
 
@@ -47,47 +47,84 @@
         <div class="audio-box">
             <p class="song-title">เพลงพิเศษสำหรับคุณ 🎶</p>
             <audio controls>
-                <source src="f4c60eec-286e-4f79-9176-7ac2e41cee87 (online-audio-converter.com).mp3" type="audio/mpeg">
+                <source src="m1.mp3" type="audio/mpeg">
                 Your browser does not support the audio tag.
             </audio>
         </div>
-
+            
         <!-- ของที่ชอบ -->
         <h2 class="favorite-title">✨ ของที่ชอบ ✨</h2>
         <div class="favorite-box">
-            <p class="favorite-item">ชาไทยซีส 🧋</p>
+            <p class="favorite-item" onclick="startGame()">ช็อคเเลต 🍫</p>
         </div>
 
         <!-- รูปด้านล่าง -->
-<div class="bottom-container">
-    <div class="image-box">
-        <img src="OIP.jpg" alt="Favorite Item" class="valentine-image">
-    </div>
+        <div class="bottom-container">
+            <div class="image-box">
+                <img src="P.png" alt="Favorite Item" class="valentine-image">
+            </div>
+            <div class="image-box">
+                <img src="5.png" alt="Bottom Image" class="bottom-image">
+            </div>
+        </div>
 
-    <div class="image-box">
-        <img src="14-1.png" alt="Bottom Image" class="bottom-image">
-    </div>
+       <!-- เกมเค้ก -->
+<div id="game-container" style="display: none; position: relative; height: 400px;">
+    <h2>คลิกเค้กให้ครบ!</h2>
+    <div id="cakes"></div>
+</div>
+<p id="win-message" style="display: none; font-size: 24px; color: red;">ขอให้วันนี้มีความสุขมากๆนะคนเก่ง🌹</p>
 </div>
 
-    <script>
-        function moveToNext(current, nextID) {
-            if (current.value.length === 1) {
-                document.getElementById(nextID).focus();
-            }
+<script>
+    function moveToNext(current, nextID) {
+        if (current.value.length === 1) {
+            document.getElementById(nextID)?.focus();
+        }
+    }
+
+    function checkCode() {
+        let code = "";
+        for (let i = 1; i <= 4; i++) {
+            code += document.getElementById("code" + i).value.toUpperCase().trim();
         }
 
-        function checkCode() {
-            let code = "";
-            for (let i = 1; i <= 5; i++) {
-                code += document.getElementById("code" + i).value.toUpperCase();
-            }
-            
-            if (code === "THIMA") {
-                document.getElementById("code-box").style.display = "none";
-                document.getElementById("success-message").style.display = "block";
-                document.getElementById("flower-box").style.display = "block"; // แสดงดอกไม้เมื่อใส่รหัสถูกต้อง
-            }
+        if (code === "PURE") {
+            document.getElementById("code-box").style.display = "none";
+            document.getElementById("success-message").style.display = "block";
+            document.getElementById("flower-box").style.display = "block"; // แสดงดอกไม้
+            startGame(); // เริ่มเกมเค้กทันทีเมื่อใส่รหัสถูก
         }
-    </script>
+    }
+
+    function startGame() {
+        document.getElementById("game-container").style.display = "block";
+        let cakesContainer = document.getElementById("cakes");
+        cakesContainer.innerHTML = "";
+        let cakeCount = 20; // ตั้งค่าเค้กเป็น 20 ชิ้น
+
+        for (let i = 0; i < cakeCount; i++) {
+            let cake = document.createElement("div");
+            cake.classList.add("cake");
+            cake.style.position = "absolute";
+            cake.style.left = Math.random() * 85 + "%";
+            cake.style.top = Math.random() * 85 + "%";
+            cake.style.width = "40px";
+            cake.style.height = "40px";
+            cake.style.backgroundImage = "url('123.png')"; // ใช้ emoji หรือใส่ path รูปภาพ
+            cake.style.backgroundSize = "cover";
+            cake.style.cursor = "pointer";
+            
+
+            cake.onclick = function() {
+                cake.remove();
+                if (document.getElementsByClassName("cake").length === 0) {
+                    document.getElementById("win-message").style.display = "block";
+                }
+            };
+            cakesContainer.appendChild(cake);
+        }
+    }
+</script>
 </body>
 </html>
